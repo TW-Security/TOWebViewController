@@ -7,44 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2253FE5A1F4EA2C800CE36D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253FE301F4EA20800CE36D2 /* main.m */; };
-		2253FE5B1F4EA2D300CE36D2 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253FE331F4EA20800CE36D2 /* TOAppDelegate.m */; };
-		2253FE5C1F4EA2D500CE36D2 /* TOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253FE351F4EA20800CE36D2 /* TOViewController.m */; };
-		2253FE5D1F4EA38700CE36D2 /* TOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253FE331F4EA20800CE36D2 /* TOAppDelegate.m */; };
-		2253FE5E1F4EA38A00CE36D2 /* TOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253FE351F4EA20800CE36D2 /* TOViewController.m */; };
-		2253FE5F1F4EA39600CE36D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253FE301F4EA20800CE36D2 /* main.m */; };
-		2253FE601F4EA3B100CE36D2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2253FE2F1F4EA20800CE36D2 /* LaunchScreen.xib */; };
-		2253FE611F4EA3C500CE36D2 /* LaunchImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2253FE2E1F4EA20800CE36D2 /* LaunchImages.xcassets */; };
 		2282AEEC1B2E473900BD92FC /* TOWebViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282AEEB1B2E473900BD92FC /* TOWebViewControllerTests.m */; };
-		2282E1D41C266D5600D53AB1 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC285618E9920B006DB0E9 /* TOActivityChrome.m */; };
-		2282E1D61C266D5600D53AB1 /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CB13C418E8158000B948D8 /* UIImage+TOWebViewControllerIcons.m */; };
-		2282E1D91C266D5600D53AB1 /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC285318E98FE1006DB0E9 /* TOActivitySafari.m */; };
-		2282E1DB1C266D5600D53AB1 /* TOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9225A1753B15E0034FEF6 /* TOWebViewController.m */; };
-		2282E1DD1C266D5600D53AB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E9FEFD1C21DC6900B0C690 /* CoreGraphics.framework */; };
-		2282E1DF1C266D5600D53AB1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E9FF011C21DCAE00B0C690 /* Twitter.framework */; };
-		2282E1E01C266D5600D53AB1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E9FEFF1C21DCA900B0C690 /* MessageUI.framework */; };
-		2282E1E11C266D5600D53AB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22834A401737B5A50043F7DF /* UIKit.framework */; };
-		2282E1E21C266D5600D53AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22834A421737B5A50043F7DF /* Foundation.framework */; };
-		2282E1EE1C266EE100D53AB1 /* TOWebViewController+1Password.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282E1ED1C266EE100D53AB1 /* TOWebViewController+1Password.m */; };
-		2282E1F01C26868E00D53AB1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2282E1EF1C26868E00D53AB1 /* WebKit.framework */; };
-		2282E1F21C26879100D53AB1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2282E1F11C26879100D53AB1 /* MobileCoreServices.framework */; };
-		2282E1F71C26ECEC00D53AB1 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2282E1F41C26ECEC00D53AB1 /* 1Password.xcassets */; };
-		2282E1F81C26ECEC00D53AB1 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282E1F61C26ECEC00D53AB1 /* OnePasswordExtension.m */; };
-		2282E1FE1C27138600D53AB1 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282E1FB1C27138600D53AB1 /* NJKWebViewProgress.m */; };
-		2282E1FF1C27138600D53AB1 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282E1FB1C27138600D53AB1 /* NJKWebViewProgress.m */; };
-		2282E2001C27138600D53AB1 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282E1FD1C27138600D53AB1 /* NJKWebViewProgressView.m */; };
-		2282E2011C27138600D53AB1 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282E1FD1C27138600D53AB1 /* NJKWebViewProgressView.m */; };
-		22834A411737B5A50043F7DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22834A401737B5A50043F7DF /* UIKit.framework */; };
-		22834A431737B5A50043F7DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22834A421737B5A50043F7DF /* Foundation.framework */; };
-		22AC285418E98FE1006DB0E9 /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC285318E98FE1006DB0E9 /* TOActivitySafari.m */; };
-		22AC285718E9920B006DB0E9 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC285618E9920B006DB0E9 /* TOActivityChrome.m */; };
-		22B5F6ED1C27EAC30051776A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B5F6EC1C27EAC30051776A /* QuartzCore.framework */; };
-		22B5F6EE1C27EAD10051776A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B5F6EC1C27EAC30051776A /* QuartzCore.framework */; };
-		22CB13C518E8158000B948D8 /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CB13C418E8158000B948D8 /* UIImage+TOWebViewControllerIcons.m */; };
-		22E9FF001C21DCA900B0C690 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E9FEFF1C21DCA900B0C690 /* MessageUI.framework */; };
-		22E9FF021C21DCAF00B0C690 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E9FF011C21DCAE00B0C690 /* Twitter.framework */; };
-		22E9FF051C21DCDA00B0C690 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E9FEFD1C21DC6900B0C690 /* CoreGraphics.framework */; };
-		22F922791753B15E0034FEF6 /* TOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9225A1753B15E0034FEF6 /* TOWebViewController.m */; };
+		88234BA728E9893500D2FD66 /* WKWebView+Evaluate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88234BA628E9893500D2FD66 /* WKWebView+Evaluate.m */; };
 		D2A653D51C7E871C00566F54 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282E1FB1C27138600D53AB1 /* NJKWebViewProgress.m */; };
 		D2A653D61C7E871F00566F54 /* NJKWebViewProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 2282E1FA1C27138600D53AB1 /* NJKWebViewProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2A653D71C7E872600566F54 /* NJKWebViewProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2282E1FC1C27138600D53AB1 /* NJKWebViewProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,16 +27,6 @@
 		D2A653E41C7E874500566F54 /* TOWebViewController+1Password.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282E1ED1C266EE100D53AB1 /* TOWebViewController+1Password.m */; };
 		D2A653E51C7EAAF900566F54 /* TOWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 22F922591753B15E0034FEF6 /* TOWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2282AEED1B2E473900BD92FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22834A351737B5A50043F7DF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22834A3C1737B5A50043F7DF;
-			remoteInfo = TOWebViewControllerExample;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2253FE271F4EA20800CE36D2 /* DefaultExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DefaultExample-Info.plist"; sourceTree = "<group>"; };
@@ -100,7 +54,6 @@
 		2282AEE71B2E473900BD92FC /* TOWebViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOWebViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282AEEA1B2E473900BD92FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2282AEEB1B2E473900BD92FC /* TOWebViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOWebViewControllerTests.m; sourceTree = "<group>"; };
-		2282E1EA1C266D5600D53AB1 /* TOWVC-1PasswordExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TOWVC-1PasswordExample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282E1EC1C266EE100D53AB1 /* TOWebViewController+1Password.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TOWebViewController+1Password.h"; sourceTree = "<group>"; };
 		2282E1ED1C266EE100D53AB1 /* TOWebViewController+1Password.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TOWebViewController+1Password.m"; sourceTree = "<group>"; };
 		2282E1EF1C26868E00D53AB1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -112,7 +65,6 @@
 		2282E1FB1C27138600D53AB1 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		2282E1FC1C27138600D53AB1 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
 		2282E1FD1C27138600D53AB1 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
-		22834A3D1737B5A50043F7DF /* TOWVC-DefaultExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TOWVC-DefaultExample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22834A401737B5A50043F7DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22834A421737B5A50043F7DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22AC285218E98FE1006DB0E9 /* TOActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivitySafari.h; sourceTree = "<group>"; };
@@ -127,6 +79,7 @@
 		22E9FF011C21DCAE00B0C690 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		22F922591753B15E0034FEF6 /* TOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOWebViewController.h; sourceTree = "<group>"; };
 		22F9225A1753B15E0034FEF6 /* TOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOWebViewController.m; sourceTree = "<group>"; };
+		88234BA628E9893500D2FD66 /* WKWebView+Evaluate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+Evaluate.m"; sourceTree = "<group>"; };
 		D2A653CD1C7E86FC00566F54 /* TOWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TOWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A653D11C7E86FC00566F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,34 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2282E1DC1C266D5600D53AB1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22B5F6EE1C27EAD10051776A /* QuartzCore.framework in Frameworks */,
-				2282E1F21C26879100D53AB1 /* MobileCoreServices.framework in Frameworks */,
-				2282E1F01C26868E00D53AB1 /* WebKit.framework in Frameworks */,
-				2282E1DD1C266D5600D53AB1 /* CoreGraphics.framework in Frameworks */,
-				2282E1DF1C266D5600D53AB1 /* Twitter.framework in Frameworks */,
-				2282E1E01C266D5600D53AB1 /* MessageUI.framework in Frameworks */,
-				2282E1E11C266D5600D53AB1 /* UIKit.framework in Frameworks */,
-				2282E1E21C266D5600D53AB1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22834A3A1737B5A50043F7DF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22B5F6ED1C27EAC30051776A /* QuartzCore.framework in Frameworks */,
-				22E9FF051C21DCDA00B0C690 /* CoreGraphics.framework in Frameworks */,
-				22E9FF021C21DCAF00B0C690 /* Twitter.framework in Frameworks */,
-				22E9FF001C21DCA900B0C690 /* MessageUI.framework in Frameworks */,
-				22834A411737B5A50043F7DF /* UIKit.framework in Frameworks */,
-				22834A431737B5A50043F7DF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,9 +287,7 @@
 		22834A3E1737B5A50043F7DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				22834A3D1737B5A50043F7DF /* TOWVC-DefaultExample.app */,
 				2282AEE71B2E473900BD92FC /* TOWebViewControllerTests.xctest */,
-				2282E1EA1C266D5600D53AB1 /* TOWVC-1PasswordExample.app */,
 				D2A653CD1C7E86FC00566F54 /* TOWebViewController.framework */,
 			);
 			name = Products;
@@ -409,6 +332,7 @@
 				22AC285618E9920B006DB0E9 /* TOActivityChrome.m */,
 				22CB13C318E8158000B948D8 /* UIImage+TOWebViewControllerIcons.h */,
 				22CB13C418E8158000B948D8 /* UIImage+TOWebViewControllerIcons.m */,
+				88234BA628E9893500D2FD66 /* WKWebView+Evaluate.m */,
 			);
 			path = TOWebViewController;
 			sourceTree = SOURCE_ROOT;
@@ -453,46 +377,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				2282AEEE1B2E473900BD92FC /* PBXTargetDependency */,
 			);
 			name = TOWebViewControllerTests;
 			productName = TOWebViewControllerTests;
 			productReference = 2282AEE71B2E473900BD92FC /* TOWebViewControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2282E1D21C266D5600D53AB1 /* TOWVC-1PasswordExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2282E1E71C266D5600D53AB1 /* Build configuration list for PBXNativeTarget "TOWVC-1PasswordExample" */;
-			buildPhases = (
-				2282E1D31C266D5600D53AB1 /* Sources */,
-				2282E1DC1C266D5600D53AB1 /* Frameworks */,
-				2282E1E31C266D5600D53AB1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "TOWVC-1PasswordExample";
-			productName = TOWebViewControllerExample;
-			productReference = 2282E1EA1C266D5600D53AB1 /* TOWVC-1PasswordExample.app */;
-			productType = "com.apple.product-type.application";
-		};
-		22834A3C1737B5A50043F7DF /* TOWVC-DefaultExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22834A631737B5A50043F7DF /* Build configuration list for PBXNativeTarget "TOWVC-DefaultExample" */;
-			buildPhases = (
-				22834A391737B5A50043F7DF /* Sources */,
-				22834A3A1737B5A50043F7DF /* Frameworks */,
-				22834A3B1737B5A50043F7DF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "TOWVC-DefaultExample";
-			productName = TOWebViewControllerExample;
-			productReference = 22834A3D1737B5A50043F7DF /* TOWVC-DefaultExample.app */;
-			productType = "com.apple.product-type.application";
 		};
 		D2A653CC1C7E86FC00566F54 /* TOWebViewController */ = {
 			isa = PBXNativeTarget;
@@ -526,12 +415,6 @@
 						CreatedOnToolsVersion = 6.3.2;
 						TestTargetID = 22834A3C1737B5A50043F7DF;
 					};
-					2282E1D21C266D5600D53AB1 = {
-						DevelopmentTeam = 6LF3GMKZAB;
-					};
-					22834A3C1737B5A50043F7DF = {
-						DevelopmentTeam = 6LF3GMKZAB;
-					};
 					D2A653CC1C7E86FC00566F54 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -542,6 +425,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				de,
 				ja,
@@ -561,8 +445,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				22834A3C1737B5A50043F7DF /* TOWVC-DefaultExample */,
-				2282E1D21C266D5600D53AB1 /* TOWVC-1PasswordExample */,
 				2282AEE61B2E473900BD92FC /* TOWebViewControllerTests */,
 				D2A653CC1C7E86FC00566F54 /* TOWebViewController */,
 			);
@@ -571,23 +453,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		2282AEE51B2E473900BD92FC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2282E1E31C266D5600D53AB1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2282E1F71C26ECEC00D53AB1 /* 1Password.xcassets in Resources */,
-				2253FE601F4EA3B100CE36D2 /* LaunchScreen.xib in Resources */,
-				2253FE611F4EA3C500CE36D2 /* LaunchImages.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22834A3B1737B5A50043F7DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -613,40 +478,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2282E1D31C266D5600D53AB1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2282E1FF1C27138600D53AB1 /* NJKWebViewProgress.m in Sources */,
-				2282E1EE1C266EE100D53AB1 /* TOWebViewController+1Password.m in Sources */,
-				2282E1D41C266D5600D53AB1 /* TOActivityChrome.m in Sources */,
-				2282E2011C27138600D53AB1 /* NJKWebViewProgressView.m in Sources */,
-				2282E1F81C26ECEC00D53AB1 /* OnePasswordExtension.m in Sources */,
-				2282E1D61C266D5600D53AB1 /* UIImage+TOWebViewControllerIcons.m in Sources */,
-				2282E1D91C266D5600D53AB1 /* TOActivitySafari.m in Sources */,
-				2253FE5F1F4EA39600CE36D2 /* main.m in Sources */,
-				2253FE5E1F4EA38A00CE36D2 /* TOViewController.m in Sources */,
-				2253FE5D1F4EA38700CE36D2 /* TOAppDelegate.m in Sources */,
-				2282E1DB1C266D5600D53AB1 /* TOWebViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22834A391737B5A50043F7DF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2253FE5A1F4EA2C800CE36D2 /* main.m in Sources */,
-				2253FE5C1F4EA2D500CE36D2 /* TOViewController.m in Sources */,
-				2282E1FE1C27138600D53AB1 /* NJKWebViewProgress.m in Sources */,
-				22AC285718E9920B006DB0E9 /* TOActivityChrome.m in Sources */,
-				22CB13C518E8158000B948D8 /* UIImage+TOWebViewControllerIcons.m in Sources */,
-				2253FE5B1F4EA2D300CE36D2 /* TOAppDelegate.m in Sources */,
-				22AC285418E98FE1006DB0E9 /* TOActivitySafari.m in Sources */,
-				2282E2001C27138600D53AB1 /* NJKWebViewProgressView.m in Sources */,
-				22F922791753B15E0034FEF6 /* TOWebViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D2A653C81C7E86FC00566F54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -655,6 +486,7 @@
 				D2A653E41C7E874500566F54 /* TOWebViewController+1Password.m in Sources */,
 				D2A653D91C7E872E00566F54 /* TOWebViewController.m in Sources */,
 				D2A653D51C7E871C00566F54 /* NJKWebViewProgress.m in Sources */,
+				88234BA728E9893500D2FD66 /* WKWebView+Evaluate.m in Sources */,
 				D2A653D81C7E872B00566F54 /* NJKWebViewProgressView.m in Sources */,
 				D2A653DD1C7E873700566F54 /* TOActivityChrome.m in Sources */,
 				D2A653DB1C7E873700566F54 /* TOActivitySafari.m in Sources */,
@@ -663,14 +495,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2282AEEE1B2E473900BD92FC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 22834A3C1737B5A50043F7DF /* TOWVC-DefaultExample */;
-			targetProxy = 2282AEED1B2E473900BD92FC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2253FE281F4EA20800CE36D2 /* InfoPlist.strings */ = {
@@ -840,52 +664,6 @@
 			};
 			name = Release;
 		};
-		2282E1E81C266D5600D53AB1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6LF3GMKZAB;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TOWebViewControllerExample/Supporting Files/TOWebViewControllerExample-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"TO_ONEPASSWORD_EXAMPLE=1",
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "TOWebViewController+1Password/OnePasswordExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.timoliver.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		2282E1E91C266D5600D53AB1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6LF3GMKZAB;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TOWebViewControllerExample/Supporting Files/TOWebViewControllerExample-Prefix.pch";
-				INFOPLIST_FILE = "TOWebViewController+1Password/OnePasswordExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.timoliver.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		22834A611737B5A50043F7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -983,45 +761,6 @@
 			};
 			name = Release;
 		};
-		22834A641737B5A50043F7DF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TOWebViewControllerExample/Supporting Files/TOWebViewControllerExample-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/TOWebViewControllerExample/Supporting Files/DefaultExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.timoliver.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		22834A651737B5A50043F7DF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TOWebViewControllerExample/Supporting Files/TOWebViewControllerExample-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/TOWebViewControllerExample/Supporting Files/DefaultExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.timoliver.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		D2A653D21C7E86FC00566F54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1109,29 +848,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2282E1E71C266D5600D53AB1 /* Build configuration list for PBXNativeTarget "TOWVC-1PasswordExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2282E1E81C266D5600D53AB1 /* Debug */,
-				2282E1E91C266D5600D53AB1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		22834A381737B5A50043F7DF /* Build configuration list for PBXProject "TOWebViewControllerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22834A611737B5A50043F7DF /* Debug */,
 				22834A621737B5A50043F7DF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		22834A631737B5A50043F7DF /* Build configuration list for PBXNativeTarget "TOWVC-DefaultExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22834A641737B5A50043F7DF /* Debug */,
-				22834A651737B5A50043F7DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

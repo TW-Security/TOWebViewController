@@ -6,6 +6,7 @@
 //
 
 #import "NJKWebViewProgress.h"
+#import "WebKit/WebKit.h"
 
 NSString *completeRPCURLPath = @"/njkwebviewprogressproxy/complete";
 
@@ -76,40 +77,41 @@ const float NJKFinalProgressValue = 0.9f;
 }
 
 #pragma mark -
-#pragma mark UIWebViewDelegate
+#pragma mark WKWebViewDelegate
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    if ([request.URL.path isEqualToString:completeRPCURLPath]) {
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
+
+    if ([navigationAction.request.URL.path isEqualToString:completeRPCURLPath]) {
         [self completeProgress];
-        return NO;
+        decisionHandler(WKNavigationActionPolicyCancel);
     }
     
     BOOL ret = YES;
-    if ([_webViewProxyDelegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
-        ret = [_webViewProxyDelegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    if ([_webViewProxyDelegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
+        ret = YES;
     }
     
     BOOL isFragmentJump = NO;
-    if (request.URL.fragment) {
-        NSString *nonFragmentURL = [request.URL.absoluteString stringByReplacingOccurrencesOfString:[@"#" stringByAppendingString:request.URL.fragment] withString:@""];
-        isFragmentJump = [nonFragmentURL isEqualToString:webView.request.URL.absoluteString];
+    if (navigationAction.request.URL.fragment) {
+        NSString *nonFragmentURL = [navigationAction.request.URL.absoluteString stringByReplacingOccurrencesOfString:[@"#" stringByAppendingString:navigationAction.request.URL.fragment] withString:@""];
+        isFragmentJump = [nonFragmentURL isEqualToString:navigationAction.request.URL.absoluteString];
     }
 
-    BOOL isTopLevelNavigation = [request.mainDocumentURL isEqual:request.URL];
+    BOOL isTopLevelNavigation = [navigationAction.request.mainDocumentURL isEqual:navigationAction.request.URL];
 
-    BOOL isHTTPOrLocalFile = [request.URL.scheme isEqualToString:@"http"] || [request.URL.scheme isEqualToString:@"https"] || [request.URL.scheme isEqualToString:@"file"];
+    BOOL isHTTPOrLocalFile = [navigationAction.request.URL.scheme isEqualToString:@"http"] || [navigationAction.request.URL.scheme isEqualToString:@"https"] || [navigationAction.request.URL.scheme isEqualToString:@"file"];
     if (ret && !isFragmentJump && isHTTPOrLocalFile && isTopLevelNavigation) {
-        _currentURL = request.URL;
+        _currentURL = navigationAction.request.URL;
         [self reset];
     }
-    return ret;
+    
+    decisionHandler(ret ? WKNavigationActionPolicyAllow : WKNavigationActionPolicyCancel);
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation
 {
-    if ([_webViewProxyDelegate respondsToSelector:@selector(webViewDidStartLoad:)]) {
-        [_webViewProxyDelegate webViewDidStartLoad:webView];
+    if ([_webViewProxyDelegate respondsToSelector:@selector(webView:didStartProvisionalNavigation:)]) {
+        [_webViewProxyDelegate webView:webView didStartProvisionalNavigation:navigation];
     }
 
     _loadingCount++;
@@ -118,59 +120,31 @@ const float NJKFinalProgressValue = 0.9f;
     [self startProgress];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation
 {
-    if ([_webViewProxyDelegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
-        [_webViewProxyDelegate webViewDidFinishLoad:webView];
+    if ([_webViewProxyDelegate respondsToSelector:@selector(webView:didFinishNavigation:)]) {
+        [_webViewProxyDelegate webView:webView didFinishNavigation:navigation];
     }
     
     _loadingCount--;
     [self incrementProgress];
-    
-    NSString *readyState = [webView stringByEvaluatingJavaScriptFromString:@"document.readyState"];
-
-    BOOL interactive = [readyState isEqualToString:@"interactive"];
-    if (interactive) {
-        _interactive = YES;
-        NSString *waitForCompleteJS = [NSString stringWithFormat:@"window.addEventListener('load',function() { var iframe = document.createElement('iframe'); iframe.style.display = 'none'; iframe.src = '%@://%@%@'; document.body.appendChild(iframe);  }, false);", webView.request.mainDocumentURL.scheme, webView.request.mainDocumentURL.host, completeRPCURLPath];
-        [webView stringByEvaluatingJavaScriptFromString:waitForCompleteJS];
-    }
-    
-    BOOL isNotRedirect = _currentURL && [_currentURL isEqual:webView.request.mainDocumentURL];
-    BOOL complete = [readyState isEqualToString:@"complete"];
-    if (complete && isNotRedirect) {
-        [self completeProgress];
-    }
+    [self completeProgress];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+- (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
 {
     if ([_webViewProxyDelegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
-        [_webViewProxyDelegate webView:webView didFailLoadWithError:error];
+        [_webViewProxyDelegate webView:webView didFailNavigation:navigation withError:error];
     }
     
     _loadingCount--;
     [self incrementProgress];
-
-    NSString *readyState = [webView stringByEvaluatingJavaScriptFromString:@"document.readyState"];
-
-    BOOL interactive = [readyState isEqualToString:@"interactive"];
-    if (interactive) {
-        _interactive = YES;
-        NSString *waitForCompleteJS = [NSString stringWithFormat:@"window.addEventListener('load',function() { var iframe = document.createElement('iframe'); iframe.style.display = 'none'; iframe.src = '%@://%@%@'; document.body.appendChild(iframe);  }, false);", webView.request.mainDocumentURL.scheme, webView.request.mainDocumentURL.host, completeRPCURLPath];
-        [webView stringByEvaluatingJavaScriptFromString:waitForCompleteJS];
-    }
-    
-    BOOL isNotRedirect = _currentURL && [_currentURL isEqual:webView.request.mainDocumentURL];
-    BOOL complete = [readyState isEqualToString:@"complete"];
-    if ((complete && isNotRedirect) || error) {
-        [self completeProgress];
-    }
+    [self completeProgress];
 }
 
 #pragma mark - 
 #pragma mark Method Forwarding
-// for future UIWebViewDelegate impl
+// for future WKWebViewDelegate impl
 
 - (BOOL)respondsToSelector:(SEL)aSelector
 {

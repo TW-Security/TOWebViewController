@@ -33,6 +33,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
 #import <Twitter/Twitter.h>
+#import "WKWebView+Evaluate.m"
 
 /* Detect if we're running iOS 7.0 or higher (With the new minimal UI) */
 #define MINIMAL_UI      ([[UIViewController class] instancesRespondToSelector:@selector(edgesForExtendedLayout)])
@@ -68,7 +69,7 @@
                                    NJKWebViewProgressDelegate,CAAnimationDelegate>
 {
     
-    //The state of the UIWebView's scroll view before the rotation animation has started
+    //The state of the WKWebView's scroll view before the rotation animation has started
     struct {
         CGSize     frameSize;
         CGSize     contentSize;
@@ -88,7 +89,7 @@
 @property (nonatomic,readonly) BOOL splitScreenEnabled;               /* Used to detect if the app is presented in split screen mode for performance reasons. */
 
 /* The main view components of the controller */
-@property (nonatomic,strong, readwrite) UIWebView *webView;           /* The web view, where all the magic happens */
+@property (nonatomic,strong, readwrite) WKWebView *webView;           /* The web view, where all the magic happens */
 @property (nonatomic,readonly) UINavigationBar *navigationBar;        /* Navigation bar shown along the top of the view */
 @property (nonatomic,readonly) UIToolbar *toolbar;                    /* Toolbar shown along the bottom */
 @property (nonatomic,strong)   UIImageView *webViewRotationSnapshot;  /* A snapshot of the web view, shown when rotating */
@@ -171,7 +172,7 @@
 #pragma mark - Class Cleanup -
 - (void)dealloc
 {
-    self.webView.delegate = nil;
+    self.webView.navigationDelegate = nil;
 }
 
 #pragma mark - Setup -
@@ -228,11 +229,10 @@
     }
     
     //Create the web view
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    self.webView.delegate = self.progressManager;
+    self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+    self.webView.navigationDelegate = self.progressManager;
     self.webView.backgroundColor = [UIColor clearColor];
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.webView.scalesPageToFit = YES;
     self.webView.contentMode = UIViewContentModeRedraw;
     self.webView.opaque = NO; // Must  be NO to avoid the initial black bars
     if (@available(iOS 11.0, *)) {
@@ -359,7 +359,7 @@
 {
     [super viewDidAppear:animated];
     //start loading the initial page
-    if (self.url && self.webView.request == nil)
+    if (self.url && !self.webView.isLoading)
     {
         [self.urlRequest setURL:self.url];
         [self.webView loadRequest:self.urlRequest];
@@ -790,19 +790,19 @@
 
 #pragma mark -
 #pragma mark WebView Delegate
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
     BOOL shouldStart = YES;
     
     //If a request handler has been set, check to see if we should go ahead
     if (self.shouldStartLoadRequestHandler) {
-        shouldStart = self.shouldStartLoadRequestHandler(request, navigationType);
+        shouldStart = self.shouldStartLoadRequestHandler(navigationAction.request, navigationAction.navigationType);
     }
         
-    return shouldStart;
+    decisionHandler(shouldStart ? WKNavigationActionPolicyAllow : WKNavigationActionPolicyCancel);
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+- (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
 {
     //If a request handler has been set, check to see if we should go ahead
     if (self.didFailLoadWithErrorRequestHandler) {
@@ -810,7 +810,7 @@
     }
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation
 {
     //show that loading started in the status bar
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -819,7 +819,7 @@
     [self refreshButtonsState];
 }
 
--(void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation
 {
     if (self.didFinishLoadHandler) {
         self.didFinishLoadHandler(webView);
@@ -831,7 +831,7 @@
 {
     [self.progressView setProgress:progress animated:YES];
     
-    // Once loading has started, the black bars bug in UIWebView will be gone, so we can
+    // Once loading has started, the black bars bug in WKWebView will be gone, so we can
     // swap back to opaque for performance
     if (self.webView.opaque == NO) {
         self.webView.opaque = YES;
@@ -910,7 +910,7 @@
     //Any potential user-specified buttons
     if (self.loadCompletedApplicationBarButtonItems) {
         BOOL enabled = NO;
-        if (loaded && self.webView.request.URL.absoluteURL) {
+        if (loaded && self.webView.URL.absoluteURL) {
             enabled = YES;
         }
         
@@ -957,7 +957,7 @@
         //it nullifies webView.request, which causes [webView reload] to stop working.
         //This checks to see if the webView request URL is nullified, and if so, tries to load
         //off our stored self.url property instead
-        if (self.webView.request.URL.absoluteString.length == 0 && self.url)
+        if (self.webView.URL.absoluteString.length == 0 && self.url)
         {
             [self.webView loadRequest:self.urlRequest];
         }
@@ -1137,7 +1137,7 @@
 - (void)openInBrowser
 {
     BOOL chromeIsInstalled = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"googlechrome://"]];
-    NSURL *inputURL = self.webView.request.URL;
+    NSURL *inputURL = self.webView.URL;
     
     if (chromeIsInstalled)
     {
@@ -1211,7 +1211,7 @@
 }
 
 #pragma mark -
-#pragma mark UIWebView Attrbutes
+#pragma mark WKWebView Attrbutes
 - (UIView *)webViewContentView
 {
     //loop through the views inside the webview, and pull out the one that renders the HTML content
@@ -1309,7 +1309,7 @@
 }
 
 #pragma mark -
-#pragma mark UIWebView Interface Rotation Handler
+#pragma mark WKWebView Interface Rotation Handler
 - (CGRect)rectForVisibleRegionOfWebViewAnimatingToOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     CGRect  rect            = CGRectZero;
@@ -1526,7 +1526,7 @@
     [self.view insertSubview:self.webViewRotationSnapshot aboveSubview:self.webView];
     
     
-    //This is a dirty, dirty, DIRTY hack. When a UIWebView's frame changes (At least on iOS 6), in certain conditions,
+    //This is a dirty, dirty, DIRTY hack. When a WKWebView's frame changes (At least on iOS 6), in certain conditions,
     //the content view will NOT resize with it. This can result in visual artifacts, such as black bars up the side,
     //and weird touch feedback like not being able to properly zoom out until the user has first zoomed in and released the touch.
     //So far, the only way I've found to actually correct this is to invoke a trivial zoom animation, and this will
@@ -1642,7 +1642,7 @@
     if (!self.compactPresentation && self.modalPresentationStyle == UIModalPresentationFormSheet)
         return;
     
-    //Side Note: When a UIWebView has just had its bounds change, its minimumZoomScale and maximumZoomScale become completely (almost arbitrarily) different.
+    //Side Note: When a WKWebView has just had its bounds change, its minimumZoomScale and maximumZoomScale become completely (almost arbitrarily) different.
     //But, it WILL rest back to minimumZoomScale = 1.0f, after the next time the user interacts with it.
     //For resetting the state right now (as the user hasn't touched it yet), we must use the 'different' values, and translate the original state to them.
     //---
