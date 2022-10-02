@@ -1,6 +1,3 @@
-
-*With the announcement of iOS 12, [`UIWebView`](https://developer.apple.com/documentation/uikit/uiwebview) is now officially deprecated. As of iOS 13, Apple have started rejecting apps that implement `UIWebView`, rendering this library completely defunct.* 
-
 *This library will be left up for developers who may still need to support iOS 7, but no new features will be added, nor will support be provided. Stay tuned. Plans for a `WKWebView` version are in the making. :D*
 
 ---
@@ -22,7 +19,6 @@
 `TOWebViewController` is an open-source `UIViewController` subclass designed to let apps quickly present web page content to its users, without needing to kick them over to Safari. `TOWebViewController` has been designed from the ground up to be easily integrated into existing projects, to take advantage of the latest features of iOS, and to optionally be backwards compatible with (significantly) earlier versions of iOS.
 
 ## Features
-* Powered by `UIWebView`, backwards compatible down to iOS 5.
 * Full navigation buttons set, including back, forward, refresh and an optional share/action button.
 * Detects whether being pushed modally, or via a navigation controller and adjusts the UI accordingly.
 * A page load progress bar  (using [ninjinkun's amazing algorithm](https://github.com/ninjinkun/NJKWebViewProgress)).
@@ -80,7 +76,7 @@ After that, you'll need to link the following system frameworks to your project:
 * Twitter.framework
 
 ## Why no `WKWebView` adoption?
-This library was originally built around iOS 5, with the explicit goal of supporting as many versions of iOS as possible. While there were some experiments in trying to drop `WKWebView` into this controller as an option for devices running iOS 8 and above, its API is so inherantly different to `UIWebView` that it would be very challenging to properly support switching between the two. As a result, the best option would be to write a new web view controller from scratch, designed around `WKWebView`.
+This library was originally built around iOS 5, with the explicit goal of supporting as many versions of iOS as possible. While there were some experiments in trying to drop `WKWebView` into this controller as an option for devices running iOS 8 and above. As a result, the best option would be to write a new web view controller from scratch, designed around `WKWebView`.
 
 `TOWebViewController` will not be adopting `WKWebView` at any point in the future. If you would like an alternative view controller that does, please give [DZNWebViewController](https://github.com/dzenbot/DZNWebViewController) a try!
 
