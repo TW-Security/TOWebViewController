@@ -443,14 +443,14 @@
 
 - (BOOL)beingPresentedModally
 {
-    // Check if we have a parent navigation controller, it's being presented modally,
-    // and if it is, that we are its root view controller
-    if (self.navigationController && self.navigationController.presentingViewController)
-        return ([self.navigationController.viewControllers indexOfObject:self] == 0);
-    else // Check if we're being presented modally directly
-        return ([self presentingViewController] != nil);
+    if([self presentingViewController])
+        return YES;
+    if([[[self navigationController] presentingViewController] presentedViewController] == [self navigationController])
+        return YES;
+    if([[[self tabBarController] presentingViewController] isKindOfClass:[UITabBarController class]])
+        return YES;
 
-    return NO;
+   return NO;
 }
 
 - (BOOL)onTopOfNavigationControllerStack
